@@ -1,0 +1,27 @@
+<html>
+<body>
+<form action="/add-item" method="post">
+    <input type="text" placeholder="Text" name="todoText"/>
+    <!--<select name="itemIsDone">-->
+        <!--<option selected disabled>Toggle</option>-->
+        <!--<option value="completed">Done</option>-->
+        <!--<option value="incomplete">Not Done</option>-->
+    <!--</select>-->
+    <button type="submit">Add Item</button>
+</form>
+
+<ol>
+    {{#items}}
+    <li>{{text}}
+        {{#isDone}}
+        Incomplete
+        {{/isDone}}
+        {{^isDone}}
+        Complete
+        {{/isDone}}
+        </a> <a href="/delete?itemID={{id}}">delete</a> <a href="/modify?itemID={{id}}">Toggle</a></li>
+    {{/items}}
+</ol>
+
+</body>
+</html>
