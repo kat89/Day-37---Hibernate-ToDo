@@ -19,11 +19,15 @@ public class ToDoItemList {
     @Column(nullable = false)
     boolean isDone;
 
+    @ManyToOne
+    User user;
+
     public ToDoItemList() {
     }
 
-    public ToDoItemList (String text, boolean isDone) {
+    public ToDoItemList (String text, boolean isDone, User user) {
         this.text = text;
         this.isDone = isDone;
+        this.user = user;
     }
 }

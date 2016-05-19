@@ -1,5 +1,23 @@
 <html>
 <body>
+
+{{^user}}
+<form action="/login" method="post">
+    <input type="text" placeholder="Username" name="userName" required/>
+    <input type="password" placeholder="Password" name="password" required/>
+    <button type="submit">Login</button>
+</form>
+{{/user}}
+
+{{#user}}
+Welcome, {{name}}!
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+<br><br>
+
+
+
 <form action="/add-item" method="post">
     <input type="text" placeholder="Text" name="todoText"/>
     <!--<select name="itemIsDone">-->
@@ -9,6 +27,8 @@
     <!--</select>-->
     <button type="submit">Add Item</button>
 </form>
+
+
 
 <ol>
     {{#items}}
@@ -23,5 +43,7 @@
     {{/items}}
 </ol>
 
+
+{{/user}}
 </body>
 </html>
